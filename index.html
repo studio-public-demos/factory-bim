@@ -9,21 +9,19 @@
 body { font-family: 'Segoe UI', system-ui, sans-serif; background: #1a1a2e; overflow: hidden; color: #e0e0e0; }
 canvas { display: block; }
 #panel {
-  position: fixed; top: 12px; left: 12px; background: rgba(16,16,32,0.92);
-  border: 1px solid #333; border-radius: 8px; padding: 16px; width: 260px;
-  backdrop-filter: blur(8px); z-index: 10; max-height: calc(100vh - 24px);
-  overflow-y: auto; transition: transform 0.3s ease;
+  position: fixed; top: 0; left: 0; background: rgba(16,16,32,0.95);
+  border: 1px solid #333; padding: 16px; width: 260px; height: 100vh;
+  backdrop-filter: blur(8px); z-index: 100; overflow-y: auto;
+  transition: transform 0.3s ease;
 }
 @media (max-width: 768px) {
-  #panel {
-    width: 100%; top: 0; left: 0; border-radius: 0;
-    transform: translateX(-100%);
-  }
+  #panel { transform: translateX(-100%); }
   #panel.open { transform: translateX(0); }
   #panel-toggle {
-    display: block; position: fixed; top: 12px; left: 12px;
-    z-index: 20; padding: 10px; background: #333; color: white;
-    border: none; border-radius: 4px; font-size: 20px;
+    display: flex; position: fixed; top: 12px; left: 12px;
+    z-index: 200; padding: 10px; background: #333; color: #fff;
+    border: 1px solid #555; border-radius: 4px; font-size: 20px;
+    align-items: center; justify-content: center;
   }
   #stats { display: none; }
 }
