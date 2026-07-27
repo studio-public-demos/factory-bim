@@ -124,9 +124,4 @@ Explore the live demo and see how your technical workflow could be transformed i
 
 **[Explore NebulaCloud Studio](https://nebulacloud.studio)**
 
-## Related Demos
 
-- [Cyber Hub Digital Twin](https://github.com/studio-public-demos/cyber-hub-digital-twin) — Geospatial 3D digital twin of an urban commercial hub
-- [Delhi Gate Digital Twin](https://github.com/studio-public-demos/delhi-gate-digital-twin) — Heritage monument digital twin with photogrammetry integration
-- [Car CFD Viewer](https://github.com/studio-public-demos/car-cfd-viewer) — Interactive computational fluid dynamics results viewer
-- [Drone Simulator Pro](https://github.com/studio-public-demos/drone-simulator-pro) — Web-based UAV flight simulator with trajectory visualization
