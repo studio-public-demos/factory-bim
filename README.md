@@ -4,6 +4,16 @@ A browser-based interactive 3D BIM viewer for an industrial factory complex, ena
 
 Built using [NebulaCloud Studio](https://nebulacloud.studio).
 
+## Overview
+This application provides an interactive, browser-based 3D view of an industrial factory facility. It demonstrates how complex Building Information Modeling (BIM) data can be visualized and explored by stakeholders without requiring specialized CAD software or extensive technical training.
+
+The project showcases a 3D factory layout with multiple discipline-specific layers, real-time inspection, and CAD export capabilities, all powered by Three.js. It was created using NebulaCloud Studio to provide a lightweight, shareable, and high-performance engineering visualization tool.
+
+## Live Demo
+[![Factory BIM](assets/screenshot.png)](https://studio-public-demos.github.io/factory-bim/)
+
+**[▶ Open Live Demo](https://studio-public-demos.github.io/factory-bim/)**
+
 ## What It Does
 
 | Capability | Description |
