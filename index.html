@@ -8,12 +8,16 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', system-ui, sans-serif; background: #1a1a2e; overflow: hidden; color: #e0e0e0; }
 canvas { display: block; }
+#panel-toggle { display: none; }
+
 #panel {
   position: fixed; top: 0; left: 0; background: rgba(16,16,32,0.95);
   border: 1px solid #333; padding: 16px; width: 260px; height: 100vh;
   backdrop-filter: blur(8px); z-index: 100; overflow-y: auto;
   transition: transform 0.3s ease;
 }
+#panel-toggle { display: none; }
+
 @media (max-width: 768px) {
   #panel { transform: translateX(-100%); }
   #panel.open { transform: translateX(0); }
@@ -25,7 +29,6 @@ canvas { display: block; }
   }
   #stats { display: none; }
 }
-#panel-toggle { display: none; }
 #panel h2 { font-size: 15px; margin-bottom: 12px; color: #60a5fa; letter-spacing: 1px; }
 .layer-group { margin-bottom: 8px; }
 .layer-group label { display: flex; align-items: center; gap: 8px; padding: 12px 8px; /* Increased padding for touch */
