@@ -12,19 +12,37 @@ canvas { display: block; }
   position: fixed; top: 12px; left: 12px; background: rgba(16,16,32,0.92);
   border: 1px solid #333; border-radius: 8px; padding: 16px; width: 260px;
   backdrop-filter: blur(8px); z-index: 10; max-height: calc(100vh - 24px);
-  overflow-y: auto;
+  overflow-y: auto; transition: transform 0.3s ease;
 }
+@media (max-width: 768px) {
+  #panel {
+    width: 100%; top: 0; left: 0; border-radius: 0;
+    transform: translateX(-100%);
+  }
+  #panel.open { transform: translateX(0); }
+  #panel-toggle {
+    display: block; position: fixed; top: 12px; left: 12px;
+    z-index: 20; padding: 10px; background: #333; color: white;
+    border: none; border-radius: 4px; font-size: 20px;
+  }
+  #stats { display: none; }
+}
+#panel-toggle { display: none; }
 #panel h2 { font-size: 15px; margin-bottom: 12px; color: #60a5fa; letter-spacing: 1px; }
 .layer-group { margin-bottom: 8px; }
-.layer-group label { display: flex; align-items: center; gap: 8px; padding: 5px 8px;
-  border-radius: 4px; cursor: pointer; transition: background 0.2s; font-size: 13px; }
+.layer-group label { display: flex; align-items: center; gap: 8px; padding: 12px 8px; /* Increased padding for touch */
+  border-radius: 4px; cursor: pointer; transition: background 0.2s; font-size: 14px; }
 .layer-group label:hover { background: rgba(96,165,250,0.1); }
-.layer-group input[type=checkbox] { accent-color: #60a5fa; width: 16px; height: 16px; }
-.color-swatch { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+.layer-group input[type=checkbox] { accent-color: #60a5fa; width: 24px; height: 24px; } /* Larger checkbox */
+.color-swatch { width: 16px; height: 16px; border-radius: 2px; flex-shrink: 0; }
 #info {
   position: fixed; bottom: 42px; left: 50%; transform: translateX(-50%);
   background: rgba(16,16,32,0.85); border: 1px solid #333; border-radius: 6px;
-  padding: 8px 16px; font-size: 12px; color: #aaa; backdrop-filter: blur(8px); z-index: 10;
+  padding: 12px 16px; font-size: 14px; color: #aaa; backdrop-filter: blur(8px); z-index: 10;
+  white-space: nowrap; max-width: 90%;
+}
+@media (max-width: 768px) {
+  #info { font-size: 10px; padding: 6px 10px; }
 }
 #stats {
   position: fixed; top: 12px; right: 12px; background: rgba(16,16,32,0.92);
@@ -61,9 +79,10 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
-
+<button id="panel-toggle">☰</button>
 <div id="panel">
   <h2>BIM LAYERS</h2>
+
 
   <div class="layer-group">
     <label><input type="checkbox" checked data-layer="foundation"><span class="color-swatch" style="background:#8B7355"></span>Foundation</label>
@@ -904,6 +923,9 @@ buildScene();
 updateStats();
 setupLayerControls();
 document.getElementById('loading').classList.add('hidden');
+document.getElementById('panel-toggle').addEventListener('click', () => {
+  document.getElementById('panel').classList.toggle('open');
+});
 
 const LAYER_DISPLAY_NAMES = {
   foundation: 'BIM_Foundation',
